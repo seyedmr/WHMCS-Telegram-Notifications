@@ -136,6 +136,10 @@ if (!function_exists('send_telegram_message')) {
         }
     
         $response = curl_exec($ch);
+
+        if(!$response){
+            $response = curl_error($ch);
+        }
         curl_close($ch);
 
         // Optionally, you can log the response for debugging
@@ -189,7 +193,7 @@ if (!function_exists('telegram_notifications_config')) {
                 "proxyType" => [
                     'FriendlyName' => 'Proxy Type',
                     'Type' => 'dropdown',
-                    'Options' => 'None,http,https,socks',
+                    'Options' => 'None,http,https,socks5,socks5h',
                     'Description' => 'Select the type of proxy to use, or choose "None" to disable proxy.',
                     'Default' => 'None',
                     ],
