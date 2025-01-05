@@ -47,7 +47,7 @@ if (!function_exists('telegram_notify')) {
             $message = build_message($type, $data);
 
             // send message
-            send_telegram_message($botToken, $chatID, $message, $message, [
+            send_telegram_message($botToken, $chatID, $message, [
                 'proxyType' => $proxyType,
                 'proxyHost' => $proxyHost,
                 'proxyPort' => $proxyPort,
